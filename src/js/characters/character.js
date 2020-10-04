@@ -23,6 +23,26 @@ class Character {
     this.name = name;
     this.level = 1;
     this.health = 100;
+    this.attack = 0;
+    this.defence = 0;
+  }
+
+  /**
+   * @method
+   * рассчитывает урон по персонажу.
+   * здоровье персонажа >= 0
+   *
+   * @param {number} points - должно быть числом >= 0
+   *
+   */
+  damage(points) {
+    if (typeof points !== 'number' || points < 0 || Number.isNaN(points)) {
+      throw new Error('некорректное значение урона');
+    }
+
+    if (this.health >= 0) {
+      this.health -= points * (1 - this.defence / 100);
+    }
   }
 }
 

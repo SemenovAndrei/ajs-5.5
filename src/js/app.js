@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // TODO: write your code here
 import Bowman from './characters/bowman';
 
@@ -5,5 +6,6 @@ import Bowman from './characters/bowman';
 console.log('worked');
 
 const result = new Bowman('Alex');
-// eslint-disable-next-line no-console
+result.damage(5000);
+result.damage(5000);
 console.log(result);
