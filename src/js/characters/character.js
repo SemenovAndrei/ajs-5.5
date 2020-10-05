@@ -30,7 +30,7 @@ class Character {
   /**
    * @method
    * рассчитывает урон по персонажу.
-   * здоровье персонажа >= 0
+   * здоровье персонажа должно быть >= 0
    *
    * @param {number} points - должно быть числом >= 0
    *
@@ -43,6 +43,27 @@ class Character {
     if (this.health >= 0) {
       this.health -= points * (1 - this.defence / 100);
     }
+  }
+
+  /**
+   * @method
+   * На 1 повышает поле level;
+   * На 20% повышает показатели attack и defence;
+   * Приводит показатель health к значению 100.
+   *
+   * здоровье персонажа должно быть больше 0
+   *
+   * @throws {error} 'нельзя повысить левел умершего'
+   */
+  levelUp() {
+    if (this.health <= 0) {
+      throw new Error('нельзя повысить левел умершего');
+    }
+
+    this.level += 1;
+    this.attack = Math.round(this.attack * 1.2);
+    this.defence = Math.round(this.defence * 1.2);
+    this.health = 100;
   }
 }
 

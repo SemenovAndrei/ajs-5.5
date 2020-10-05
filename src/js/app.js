@@ -6,6 +6,6 @@ import Bowman from './characters/bowman';
 console.log('worked');
 
 const result = new Bowman('Alex');
-result.damage(5000);
-result.damage(5000);
+result.damage(50);
+result.levelUp();
 console.log(result);
